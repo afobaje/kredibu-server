@@ -1,0 +1,6 @@
+@kredibu_server_HostAddress = http://localhost:5267
+
+GET {{kredibu_server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

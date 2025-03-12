@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "F9S+JUSYRmTjpytQy1AUV45ZFHCCc2iKJyrrFYGpG/o=",
+  "Source": "kredibu-server",
+  "BasePath": "_content/kredibu-server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
