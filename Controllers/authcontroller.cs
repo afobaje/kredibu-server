@@ -2,8 +2,6 @@ using kredibu_server.Data;
 using kredibu_server.Models;
 using Microsoft.AspNetCore.Mvc;
 
-
-
 [ApiController]
 [Route("api/auth")]
 public class AuthController : ControllerBase
@@ -65,7 +63,6 @@ public class AuthController : ControllerBase
             return NotFound("User not found");
         }
         return Ok(UserExist);
-
     }
 
 

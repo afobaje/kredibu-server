@@ -32,22 +32,16 @@ public class UserDbContext : DbContext
             entity.Property(e => e.occupation).HasColumnName("occupation").IsRequired();
             entity.Property(e => e.state).HasColumnName("state").IsRequired();
             entity.Property(e => e.country).HasColumnName("country").IsRequired();
-
-            
         });
         modelBuilder.Entity<BusinessUser>().HasOne<IndividualUser>().WithMany().HasForeignKey(e=>e.ownerId).IsRequired();
-
-       
         base.OnModelCreating(modelBuilder);
     }
 
-
-// nextval('account.item_id_seq'::regclass)
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.UseNpgsql(connectionString: "Server=localhost;Port=5432;User Id=postgres;Password=afobaje;Database=kredibu_database;");
-        // base.OnConfiguring(optionsBuilder);
-        // optionsBuilder.UseNpgsql(@"{connectionString}");
-    }
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseNpgsql(connectionString: "Server=localhost;Port=5432;User Id=postgres;Password=afobaje;Database=kredibu_database;");
+      
+    // }
 }
+
+// "DefaultConnection":"postgres://postgres:afobaje@localhost:5432/kredibu_database;"
