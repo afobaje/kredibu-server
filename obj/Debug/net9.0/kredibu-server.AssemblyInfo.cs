@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("kredibu-server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ad3cc9803f14602c4c02c44f637c61e57f970a64")]
 [assembly: System.Reflection.AssemblyProductAttribute("kredibu-server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("kredibu-server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

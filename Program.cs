@@ -6,11 +6,15 @@ using kredibu_server.Repositories;
 using System.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
+var connectionString=builder.Configuration.GetConnectionString("DefaultConnection");
+// var connectionString = builder.Configuration.GetConnectionString("PostgreSQLConnection");
 // Add services to the container.
 var services = builder.Services;
 services.AddControllers();
 services.AddDbContext<UserDbContext>(opt => opt.UseNpgsql(connectionString));
+
+
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 services.AddScoped<IAuthRepository, AuthServices>();
 services.AddOpenApi();

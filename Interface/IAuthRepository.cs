@@ -7,7 +7,5 @@ public interface IAuthRepository
     Task<BusinessUser> RegisterBusinessUser(BusinessUser user);
     Task<IndividualUser?> LoginIndividualUser(string username, string password);
     Task<BusinessUser?> LoginBusinessUser(string username, string password);
-    // Task<bool> UserExists(string username);
-
 }
 

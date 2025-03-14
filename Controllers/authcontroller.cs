@@ -7,35 +7,35 @@ using Microsoft.AspNetCore.Mvc;
 public class AuthController : ControllerBase
 {
 
-    private readonly IHttpClientFactory _clientFactory;
+    // private readonly IHttpClientFactory _clientFactory;
     private IAuthRepository _repo;
-    public AuthController(IAuthRepository context, IHttpClientFactory httpClientFactory)
+    public AuthController(IAuthRepository context)
     {
-        _clientFactory = httpClientFactory;
         _repo = context;
-
     }
 
-
+    [ProducesResponseType(typeof(IndividualUser), 201)]
+    [ProducesResponseType(400)]
     [HttpPost("register/individual")]
     public async Task<IActionResult> CreateIndividualUser([FromBody] IndividualUser user)
     {
         if (user == null)
         {
-            return BadRequest();
+            return BadRequest("Invalid response body");
         }
-      
+
         var newIndividualUser = await _repo.RegisterIndividualUser(user);
         return CreatedAtAction(nameof(CreateIndividualUser), new { newIndividualUser });
     }
 
-
+    [ProducesResponseType(typeof(BusinessUser), 201)]
+    [ProducesResponseType(400)]
     [HttpPost("register/business")]
     public async Task<IActionResult> CreateBusinessUser([FromBody] BusinessUser user)
     {
         if (user == null)
         {
-            return BadRequest();
+            return BadRequest("Invalid response body");
         }
         var newBusinessUser = await _repo.RegisterBusinessUser(user);
         return CreatedAtAction(nameof(CreateBusinessUser), new { newBusinessUser });
@@ -44,7 +44,6 @@ public class AuthController : ControllerBase
     [HttpPost("login/individual")]
     public async Task<ActionResult> LoginIndividual([FromBody] LoginRequestDTO user)
     {
-
         var UserExist = await _repo.LoginIndividualUser(user.email, user.password);
         if (UserExist is null)
         {

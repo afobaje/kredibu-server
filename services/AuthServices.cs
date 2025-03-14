@@ -24,7 +24,7 @@ public class AuthServices:IAuthRepository
 
     public async Task<IndividualUser> RegisterIndividualUser(IndividualUser user)
     {
-          user.password = Utils.HashPassword(user.password);
+        user.password=Utils.encryptPassword(user.password);
         await _userdb.AddAsync(user);
         await _userdb.SaveChangesAsync();
         return user;
@@ -32,7 +32,7 @@ public class AuthServices:IAuthRepository
 
     public async Task<BusinessUser> RegisterBusinessUser(BusinessUser user)
     {
-          user.password = Utils.HashPassword(user.password);
+          user.password = Utils.encryptPassword(user.password);
         await _userdb.AddAsync(user);
         await _userdb.SaveChangesAsync();
         return user;
